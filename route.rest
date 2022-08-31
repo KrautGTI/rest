@@ -1,0 +1,38 @@
+GET http://localhost:3000/subscribers
+###
+GET http://localhost:3000/subscribers/630e88c99768f0d3b7957bc7
+###
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+  "name": "John Doyle",
+  "subscribedToChannel" : "Leaderboard"
+}
+###
+DELETE http://localhost:3000/subscribers/630e88c99768f0d3b7957bc7
+
+###
+PATCH http://localhost:3000/subscribers/630e8d1f4660d65a08ba7d06
+Content-Type: application/json
+
+{
+  "name": "Mr Hallaway"
+}
+###
+curl --location --request POST 'https://data.mongodb-api.com/app/data-axnvq/endpoint/data/v1/action/findOne' \
+--header 'Content-Type: application/json' \
+--header 'Access-Control-Request-Headers: *' \
+--header 'api-key: kKMCKgPygYKrLoXySvB4Yfs0tYSBdkCSOcEwGIUyjbmfRttFrW4Ewu0QSUHPiGPD' \
+--data-raw '{
+    "collection":"subscribers",
+    "database":"test",
+    "dataSource":"Cluster0",
+    "projection": {"_id": 1}
+}'
+
+### GET USERS
+curl --location --request GET 'https://data.mongodb-api.com/app/data-axnvq/endpoint/data/v1/subscribers' \
+--header 'Content-Type: application/json' \
+--header 'Access-Control-Request-Headers: *' \
+--header 'api-key: kKMCKgPygYKrLoXySvB4Yfs0tYSBdkCSOcEwGIUyjbmfRttFrW4Ewu0QSUHPiGPD'
